@@ -17,7 +17,7 @@ const postTemplate = document.getElementById('postTemplate');
 // API handlers
 async function fetchPosts() {
     try {
-        const response = await fetch('http://localhost:8000/api/posts', {
+        const response = await fetch('http://64.225.26.108/api/posts', {
             headers: {
                 'Content-Type': 'application/json',
                 'Authorization': `Bearer ${localStorage.getItem('adminToken')}`
@@ -37,7 +37,7 @@ async function fetchPosts() {
 
 async function createPost(postData) {
     try {
-        const response = await fetch('http://localhost:8000/api/posts', {
+        const response = await fetch('http://64.225.26.108/api/posts', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',
@@ -59,7 +59,7 @@ async function createPost(postData) {
 
 async function updatePost(id, postData) {
     try {
-        const response = await fetch(`http://localhost:8000/api/posts/${id}`, {
+        const response = await fetch(`http://64.225.26.108/api/posts/${id}`, {
             method: 'PUT',
             headers: {
                 'Content-Type': 'application/json',
@@ -83,7 +83,7 @@ async function deletePost(id) {
     if (!confirm('Are you sure you want to delete this post?')) return;
     
     try {
-        const response = await fetch(`http://localhost:8000/api/posts/${id}`, {
+        const response = await fetch(`http://64.225.26.108/api/posts/${id}`, {
             method: 'DELETE',
             headers: {
                 'Content-Type': 'application/json',
