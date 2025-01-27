@@ -128,3 +128,30 @@ def delete_post(
     db.delete(db_post)
     db.commit()
     return {"message": "Post deleted successfully"}
+
+# Add these endpoints to main.py
+
+# Public endpoints (no authentication required)
+@app.get("/api/public/posts", response_model=List[PostResponse])
+def get_public_posts(db: Session = Depends(get_db)):
+    posts = db.query(Post).order_by(Post.created_at.desc()).all()
+    return posts
+
+@app.get("/api/public/posts/{post_id}", response_model=PostResponse)
+def get_public_post(post_id: int, db: Session = Depends(get_db)):
+    post = db.query(Post).filter(Post.id == post_id).first()
+    if not post:
+        raise HTTPException(status_code=404, detail="Post not found")
+    return post
+
+@app.get("/api/public/posts", response_model=List[PostResponse])
+def get_public_posts(db: Session = Depends(get_db)):
+    posts = db.query(Post).order_by(Post.created_at.desc()).all()
+    return posts
+
+@app.get("/api/public/posts/{post_id}", response_model=PostResponse)
+def get_public_post(post_id: int, db: Session = Depends(get_db)):
+    post = db.query(Post).filter(Post.id == post_id).first()
+    if not post:
+        raise HTTPException(status_code=404, detail="Post not found")
+    return post

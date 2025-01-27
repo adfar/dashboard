@@ -1,7 +1,7 @@
 // Fetch and display posts with more details
 async function fetchPosts() {
     try {
-        const response = await fetch('/api/posts');
+        const response = await fetch('/api/public/posts');
         const data = await response.json();
         console.log('API Response:', data); // Debug log
         

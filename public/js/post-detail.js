@@ -9,7 +9,7 @@ async function fetchPost() {
     }
 
     try {
-        const response = await fetch(`/api/posts/${postId}`);
+        const response = await fetch(`/api/public/posts/${postId}`);
         if (!response.ok) {
             throw new Error('Post not found');
         }
