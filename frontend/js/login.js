@@ -11,7 +11,7 @@ document.getElementById('loginForm').addEventListener('submit', async (e) => {
         formData.append('username', username);
         formData.append('password', password);
 
-        const response = await fetch('http://localhost:8000/api/login', {
+        const response = await fetch('http://165.227.64.163/api/login', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/x-www-form-urlencoded',
