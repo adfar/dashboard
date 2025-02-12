@@ -1,6 +1,7 @@
 from fastapi import FastAPI, Depends, HTTPException, status
 from fastapi.security import OAuth2PasswordRequestForm
 from fastapi.middleware.cors import CORSMiddleware
+from fastapi.staticfiles import StaticFiles
 from sqlalchemy.orm import Session
 from pydantic import BaseModel
 from typing import Optional, List
@@ -15,6 +16,8 @@ from auth import (
 )
 
 app = FastAPI()
+
+app.mount("/", StaticFiles(directory="public", html=False), name="static")
 
 # Configure CORS
 app.add_middleware(
