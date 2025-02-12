@@ -17,7 +17,7 @@ from auth import (
 
 app = FastAPI()
 
-app.mount("/", StaticFiles(directory="public", html=False), name="static")
+app.mount("/", StaticFiles(directory="/var/www/dashboard/public", html=False), name="static")
 
 # Configure CORS
 app.add_middleware(
